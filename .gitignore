@@ -39,3 +39,6 @@ luac.out
 *.x86_64
 *.hex
 
+# OSX Files
+.DS_STORE
+

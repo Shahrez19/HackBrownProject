@@ -16,6 +16,9 @@
 		89401BD21E4665060053AD02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89401BD01E4665060053AD02 /* LaunchScreen.storyboard */; };
 		89401BDD1E4665060053AD02 /* FightOrFlightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89401BDC1E4665060053AD02 /* FightOrFlightTests.swift */; };
 		89401BE81E4665060053AD02 /* FightOrFlightUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89401BE71E4665060053AD02 /* FightOrFlightUITests.swift */; };
+		89401BF71E4669AE0053AD02 /* MyoKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89401BF61E4669AE0053AD02 /* MyoKit.framework */; };
+		89401BF91E4669BB0053AD02 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89401BF81E4669BB0053AD02 /* CoreBluetooth.framework */; };
+		89401BFB1E4669C90053AD02 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89401BFA1E4669C90053AD02 /* SystemConfiguration.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,10 @@
 		89401BE31E4665060053AD02 /* FightOrFlightUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FightOrFlightUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		89401BE71E4665060053AD02 /* FightOrFlightUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightOrFlightUITests.swift; sourceTree = "<group>"; };
 		89401BE91E4665060053AD02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		89401BF61E4669AE0053AD02 /* MyoKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MyoKit.framework; sourceTree = "<group>"; };
+		89401BF81E4669BB0053AD02 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		89401BFA1E4669C90053AD02 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		89401BFC1E466B350053AD02 /* FightOrFlight-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FightOrFlight-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +65,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89401BFB1E4669C90053AD02 /* SystemConfiguration.framework in Frameworks */,
+				89401BF91E4669BB0053AD02 /* CoreBluetooth.framework in Frameworks */,
+				89401BF71E4669AE0053AD02 /* MyoKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,10 +91,12 @@
 		89401BB71E4665050053AD02 = {
 			isa = PBXGroup;
 			children = (
+				89401BFC1E466B350053AD02 /* FightOrFlight-Bridging-Header.h */,
 				89401BC21E4665060053AD02 /* FightOrFlight */,
 				89401BDB1E4665060053AD02 /* FightOrFlightTests */,
 				89401BE61E4665060053AD02 /* FightOrFlightUITests */,
 				89401BC11E4665060053AD02 /* Products */,
+				89401BF51E4669AE0053AD02 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -129,6 +141,16 @@
 				89401BE91E4665060053AD02 /* Info.plist */,
 			);
 			path = FightOrFlightUITests;
+			sourceTree = "<group>";
+		};
+		89401BF51E4669AE0053AD02 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				89401BFA1E4669C90053AD02 /* SystemConfiguration.framework */,
+				89401BF81E4669BB0053AD02 /* CoreBluetooth.framework */,
+				89401BF61E4669AE0053AD02 /* MyoKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -419,6 +441,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = FightOrFlight/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Kobe-21.FightOrFlight";
@@ -432,6 +458,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = FightOrFlight/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Kobe-21.FightOrFlight";
