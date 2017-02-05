@@ -1,13 +1,15 @@
 <html>
 <link href="bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
 <body>
     <div class="container" style="width: 400px">
         <div class="row">
             <div class="jumbotron">
                 <h1>Welcome to Calmyo!</h1>
+                <h2 class="">Connectivity: <span id="status" class="fa fa-ban"></span></h2>
                 <div class="form-group">
-                    <label for="exampleSelect1">Example select</label>
+                    <label for="exampleSelect1">Consolations</label>
                     <select class="form-control" id="exampleSelect1">
                         <option>Breathing Exercise</option>
                         <option>Cat Photos</option>
@@ -17,29 +19,8 @@
         </div>
     </div>
 </body>
-<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>-->
+<script src="jquery-3.1.1.min.js"></script>
 <script src="node_modules/myo/myo.js"></script>
-
-<script>
-    Myo.connect('com.stolksdorf.myAwesomeApp');
-    Myo.on('connected', function () {
-        Myo.myos[0].on('emg', function (data) {
-            var sum = 0;
-            for (var i = 0; i < data.length; i++) {
-                sum += Math.abs(data[i]);
-            }
-            var avg = sum / data.length;
-            //console.log(avg);
-            if (avg >= 50) {
-                console.log(avg);
-                this.vibrate();
-                //createFrame();   
-
-                Myo.myos[0].off('connected');
-            }
-        });
-        Myo.myos[0].streamEMG(true);
-    });
-</script>
+<script src="popup.js"></script>
 
 </html>

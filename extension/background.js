@@ -355,7 +355,8 @@
 
 // END OF MYO
 
-var switch = false;
+var sw = false;
+var counter = 0;
 
 Myo.connect('com.stolksdorf.myAwesomeApp');
 Myo.on('connected', function () {
@@ -366,22 +367,26 @@ Myo.on('connected', function () {
         }
         var avg = sum / data.length;
         //console.log(avg);
-        if (avg >= 50 && !switch) {
-            var switch = true;
+        if (avg >= 50 && !sw) {
+            counter++;
             console.log(avg);
-            this.vibrate();
-            var iFrame = document.createElement("iframe");
-            iFrame.setAttribute("style", "position: fixed; z-index: 2000; width:100%; height:100%; border-style: none;");
-            iFrame.src = chrome.extension.getURL("embed.htm");
-            document.body.insertBefore(iFrame, document.body.firstChild);
-            addEventListener('message', function (ev) {
-                if (ev.data === 'closeIframe') {
-                    iFrame.parentNode.removeChild(iFrame); // Your code
-                    setTimeout(function() {switch = false;}, 3000);
-                }
-            });
-
-            Myo.myos[0].off('connected');
+            if (counter == 20) {
+                counter = 0;
+                var sw = true;
+                this.vibrate();
+                var iFrame = document.createElement("iframe");
+                iFrame.setAttribute("style", "position: fixed; z-index: 2000; width:100%; height:100%; border-style: none;");
+                iFrame.src = chrome.extension.getURL("embed.htm");
+                document.body.insertBefore(iFrame, document.body.firstChild);
+                addEventListener('message', function (ev) {
+                    if (ev.data === 'closeIframe') {
+                        iFrame.parentNode.removeChild(iFrame); // Your code
+                        setTimeout(function () {
+                            sw = false;
+                        }, 3000);
+                    }
+                });
+            }
         }
     });
     Myo.myos[0].streamEMG(true);
