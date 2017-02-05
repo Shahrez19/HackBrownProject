@@ -13,12 +13,16 @@
     <script type="text/javascript" src="HelloWorld.js"></script>
 </head>
 
-<body style="background-color: rgba(0,0,0,.4); height: 100vh;">
+<body style="background-color: rgba(0,0,0,.4); background-image: url(texture.png); background-repeat:repeat; height: 100%;">
     <!--<div class="cover"></div>-->
     <div class="container">
-        <div class="myApp animated fadeIn jumbotron" style="margin-top: 15%; z-index: 10">
-            <p class="display-4">Hello World!</p>
-            <button id="bttn" class="btn btn-primary btn-lg">Click Me</button>
+        <div class="row justify-content-md-center">
+            <div class="col col-md-6 myApp animated fadeIn" style="border-radius: 20px; margin-top: 10%; z-index: 10; text-align:center; background: #131419;">
+                <div style="width:100%">
+                    <img src="noframe.gif" style="width:60%; height:auto; margin-top:20px">
+                </div>
+                <button id="bttn" class="btn btn-outline-info btn-lg" style="margin-top: 20px; margin-bottom: 20px; border-width: 2px;">Finish</button>
+            </div>
         </div>
     </div>
 </body>
