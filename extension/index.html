@@ -1,48 +1,57 @@
 <html>
+<link href="bootstrap/bootstrap.min.css" rel="stylesheet" type="text/css">
+
 <body>
-<div>Script for detecting the EMG data from the Myo band.</div>
-<button onclick="vibrate()">vibrate</button>
+    <div class="container" style="width: 400px">
+        <div class="row">
+            <div class="jumbotron">
+                <p>Script for detecting the EMG data from the Myo band.</p>
+                <button onclick="vibrate()">vibrate</button>
+            </div>
+        </div>
+    </div>
 </body>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 <script src="node_modules/myo/myo.js"></script>
 <script src="iframeinjector.js"></script>
 
 <script>
-function vibrate() {
-   if (Myo.myos.length) {
-    Myo.myos[0].vibrate();
-   }
-}
-console.log(Myo);
-
-Myo.connect('com.stolksdorf.myAwesomeApp');
-Myo.on('connected', function() {
-	Myo.myos[0].on('emg', function(data) {
-        var sum = 0;
-        for (var i =0; i < data.length; i++) {
-            sum += Math.abs(data[i]);
+    function vibrate() {
+        if (Myo.myos.length) {
+            Myo.myos[0].vibrate();
         }
-        var avg = sum / data.length;
-		//console.log(avg);
-		if (avg >= 50) {
-			console.log(avg);
-			this.vibrate();       
-      		//createFrame();   
-			chrome.tabs.executeScript(null, {file: "iframeinjector.js"});
-			Myo.myos[0].off('connected');
-		}
-	});
-	Myo.myos[0].streamEMG(true);
-});
-/*
-console.log(Myo.myos);
-Myo.on('fist', function(){
-    
-    console.log('Hello Myo!');
-    this.vibrate();
-});
-*/
+    }
+    console.log(Myo);
 
-
+    Myo.connect('com.stolksdorf.myAwesomeApp');
+    Myo.on('connected', function () {
+        Myo.myos[0].on('emg', function (data) {
+            var sum = 0;
+            for (var i = 0; i < data.length; i++) {
+                sum += Math.abs(data[i]);
+            }
+            var avg = sum / data.length;
+            //console.log(avg);
+            if (avg >= 50) {
+                console.log(avg);
+                this.vibrate();
+                //createFrame();   
+                chrome.tabs.executeScript(null, {
+                    file: "iframeinjector.js"
+                });
+                Myo.myos[0].off('connected');
+            }
+        });
+        Myo.myos[0].streamEMG(true);
+    });
+    /*
+    console.log(Myo.myos);
+    Myo.on('fist', function(){
+        
+        console.log('Hello Myo!');
+        this.vibrate();
+    });
+    */
 </script>
+
 </html>
