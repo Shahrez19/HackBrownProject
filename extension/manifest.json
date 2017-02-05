@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "content_scripts": [{
         "js": ["iframeInjector.js"],
-        "matches": ["http://*/*", "https://*/*"
+        "matches": ["http://www.cademons.org/*"
         ]
     }],
     "description": "Inject a complete, premade web page",
