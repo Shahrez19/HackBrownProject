@@ -14,15 +14,21 @@
     <script type="text/javascript" src="HelloWorld.js"></script>
 </head>
 
-<body style="background-color: rgba(0,0,0,.4); background-image: url(texture.png); background-repeat:repeat; height: 100%;">
+<body class="animated fadeIn" style="background-color: rgba(0,0,0,.4); background-image: url(texture.png); background-repeat:repeat; height: 100%;">
     <!--<div class="cover"></div>-->
     <div class="container">
         <div class="row justify-content-md-center">
-            <div class="col col-md-5 myApp animated fadeIn" style="border-radius: 20px; margin-top: 10%; z-index: 10; text-align:center; background: #131419;">
+            <div class="col col-md-5 myApp" style="border-radius: 20px; margin-top: 10%; z-index: 10; text-align:center; background: #131419;">
                 <div style="width:100%">
                     <img src="noframe.gif" style="width:60%; height:auto; margin-top:20px">
                 </div>
-                <button id="bttn" class="btn btn-outline-info btn-lg" style="margin-top: 20px; margin-bottom: 20px;">Finish <span class="fa fa-check-circle"></span></button>
+                <div style="font-size: 20px; color: white">
+                    <label id="minutes" style="margin: 0">00</label>:
+                    <label id="seconds" style="margin: 0">00</label>
+                </div>
+                <button id="bttn2" class="btn btn-outline-info btn-lg" style="margin-top: 10px; margin-bottom: 20px;">
+                    <span id="icon" class="fa fa-volume-off"></span></button>
+                <button id="bttn" class="btn btn-outline-info btn-lg" style="margin-top: 10px; margin-bottom: 20px;">Finish <span class="fa fa-check-circle"></span></button>
             </div>
         </div>
     </div>
