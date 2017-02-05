@@ -359,15 +359,16 @@ var sw = false;
 var counter = 0;
 
 Myo.connect('com.stolksdorf.myAwesomeApp');
+//updated every time a browser refreshes
 Myo.on('connected', function () {
+    alert("connected!");
     Myo.myos[0].on('emg', function (data) {
         var sum = 0;
         for (var i = 0; i < data.length; i++) {
             sum += Math.abs(data[i]);
         }
         var avg = sum / data.length;
-        //console.log(avg);
-        if (avg >= 50 && !sw) {
+        if (avg >= 80 && !sw) {
             counter++;
             console.log(avg);
             if (counter == 20) {

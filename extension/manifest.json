@@ -12,8 +12,8 @@
     "permissions": [
         "activeTab"
     ],
-    "description": "Inject a complete, premade web page",
-    "name": "Inject whole web page",
+    "description": "Preventing anxiety as it happens",
+    "name": "CalmYo",
     "version": "1",
     "web_accessible_resources": ["embed.htm", "iframeInjector.js"]
 }
