@@ -1,0 +1,43 @@
+<html>
+<body>
+<div>Sup</div>
+<button onclick="vibrate()">vibrate</button>
+</body>
+<script src="node_modules/myo/myo.js"></script>
+<script src="../extension/iframeinjector.js"></script>
+<script>
+function vibrate() {
+   if (Myo.myos.length) {
+    Myo.myos[0].vibrate();
+   }
+}
+console.log(Myo);
+
+Myo.connect('com.stolksdorf.myAwesomeApp');
+Myo.on('connected', function() {
+	Myo.myos[0].on('emg', function(data) {
+        var sum = 0;
+        for (var i =0; i < data.length; i++) {
+            sum += Math.abs(data[i]);
+        }
+        var avg = sum / data.length;
+		console.log(avg);
+		if (avg >= 50) {
+			this.vibrate();
+			createFrame();
+			Myo.myos[0].off('connected');
+		}
+	});
+	Myo.myos[0].streamEMG(true);
+});
+console.log(Myo.myos);
+Myo.on('fist', function(){
+    
+    console.log('Hello Myo!');
+    this.vibrate();
+});
+
+
+
+</script>
+</html>
