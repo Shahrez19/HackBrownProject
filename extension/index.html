@@ -5,7 +5,7 @@
 </body>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 <script src="node_modules/myo/myo.js"></script>
-<script src="../extension/iframeinjector.js"></script>
+<script src="iframeinjector.js"></script>
 
 <script>
 function vibrate() {
@@ -27,7 +27,8 @@ Myo.on('connected', function() {
 		if (avg >= 50) {
 			console.log(avg);
 			this.vibrate();       
-      		createFrame();   
+      		//createFrame();   
+			chrome.tabs.executeScript(null, {file: "iframeinjector.js"});
 			Myo.myos[0].off('connected');
 		}
 	});
