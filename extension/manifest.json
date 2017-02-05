@@ -2,16 +2,18 @@
     "manifest_version": 2,
     "browser_action": {
         "default_icon": "icon.png",
-        "default_popup": "index.html",
+        //"default_popup": "index.html",
         "default_title": "Settings for Calmyo!"
     },
     "content_scripts": [{
-        "js": ["iframeInjector.js"],
-        "matches": ["http://www.cademons.org/*"
-        ]
+        "js": ["background.js"],
+        "matches": ["<all_urls>"]
     }],
+    "permissions": [
+        "activeTab"
+    ],
     "description": "Inject a complete, premade web page",
     "name": "Inject whole web page",
     "version": "1",
-    "web_accessible_resources": ["embed.htm"]
+    "web_accessible_resources": ["embed.htm", "iframeInjector.js"]
 }
